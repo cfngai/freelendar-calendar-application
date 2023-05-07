@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">COMP4521Project</string>
+    <string name="title_home">Home</string>
+    <string name="title_weekly">Weekly</string>
+    <string name="title_monthly">Monthly</string>
+    <string name="title_financialhelper">FinancialHelper</string>
+    <string name="title_setting">Setting</string>
+</resources>
