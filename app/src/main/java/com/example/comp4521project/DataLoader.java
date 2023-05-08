@@ -81,9 +81,7 @@ public class DataLoader {
     }
 
     public boolean removeEvent(Context context, IEvent event) {
-        int id = (idToEvent.size()==0)? 0 : Collections.max(idToEvent.keySet()) + 1;
-        event.setID(id);
-        idToEvent.remove(id);
+        idToEvent.remove(event.getID());
         removeByDate(event);
         return saveData(context);
     }

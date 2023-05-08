@@ -1,7 +1,10 @@
 package com.example.comp4521project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.example.comp4521project.util.IEvent;
 import com.example.comp4521project.util.Time;
@@ -20,8 +23,9 @@ import java.time.LocalDate;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private DataLoader dataLoader;
+    public static DataLoader dataLoader;
 
+    private ImageButton addEventButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +43,13 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
         dataLoader = new DataLoader(this);
 
-        //IEvent event = new IEvent(-1, "a", "b", "c", LocalDate.now(), new Time(0), new Time(5), 10, "owo", -1);
-        //dataLoader.addEvent(this, event);
-        //dataLoader.saveData(this);
+        addEventButton = (ImageButton) findViewById(R.id.addEventButton);
+        addEventButton.setOnClickListener(addEventButtonClick);
     }
+
+    private View.OnClickListener addEventButtonClick = view -> {
+        Intent addIntent = new Intent(MainActivity.this, AddEventIntent.class);
+        startActivity(addIntent);
+    };
 
 }

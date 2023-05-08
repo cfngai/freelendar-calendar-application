@@ -13,7 +13,7 @@ public class IEvent {
     private LocalDate date;
     private Time startTime;
     private Time endTime;
-    private int income;
+    private float income;
     private String remark;
 
     /*
@@ -24,7 +24,7 @@ public class IEvent {
     private int status;
 
     public IEvent(int ID, String title, String description, String company, LocalDate date,
-                  Time startTime, Time endTime, int income, String remark, int status) {
+                  Time startTime, Time endTime, float income, String remark, int status) {
         this.ID = ID;
         this.title = title;
         this.description = description;
@@ -48,7 +48,7 @@ public class IEvent {
                     jsonObject.getInt("date_day"));
             this.startTime = new Time(jsonObject.getInt("startTime"));
             this.endTime = new Time(jsonObject.getInt("endTime"));
-            this.income = jsonObject.getInt("income");
+            this.income = Float.parseFloat(jsonObject.getString("income"));
             this.remark = jsonObject.getString("remark");
             this.status = jsonObject.getInt("status");
         } catch (Exception ex) {
@@ -68,7 +68,7 @@ public class IEvent {
             jsonObject.put("date_day", this.date.getDayOfMonth());
             jsonObject.put("startTime", this.startTime.toInt());
             jsonObject.put("endTime", this.endTime.toInt());
-            jsonObject.put("income", this.income);
+            jsonObject.put("income", Float.toString(this.income));
             jsonObject.put("remark", this.remark);
             jsonObject.put("status", this.status);
             return jsonObject;
@@ -135,11 +135,11 @@ public class IEvent {
         this.endTime = endTime;
     }
 
-    public int getIncome() {
+    public float getIncome() {
         return income;
     }
 
-    public void setIncome(int income) {
+    public void setIncome(float income) {
         this.income = income;
     }
 
@@ -151,4 +151,11 @@ public class IEvent {
         this.remark = remark;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 }

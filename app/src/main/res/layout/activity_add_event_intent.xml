@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddEventIntent">
+
+    <Button
+        android:id="@+id/confirmButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/confirm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cancelButton"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/addEventRemarkField" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/addEventRemarkField"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/addEventEndingTimeLabel" />
+
+    <TextView
+        android:id="@+id/addEventTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="38dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/AddEventTitle"
+        android:textColor="#6200ED"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/addEventTitleLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/addEventTitleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="28dp"
+        android:text="@string/titleLabel"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/addEventTitleField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addEventTitle" />
+
+    <TextView
+        android:id="@+id/addEventDescriptionLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/descriptionLabel"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/addEventTitleLabel"
+        app:layout_constraintTop_toBottomOf="@+id/addEventTitleLabel" />
+
+    <TextView
+        android:id="@+id/addEventCompanyLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="@string/companyLabel"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/addEventIncomeField"
+        app:layout_constraintStart_toStartOf="@+id/addEventDescriptionLabel"
+        app:layout_constraintTop_toBottomOf="@+id/addEventDescriptionLabel" />
+
+    <TextView
+        android:id="@+id/addEventDateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="21dp"
+        android:text="@string/dateLabel"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/addEventDateField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addEventCompanyLabel" />
+
+    <TextView
+        android:id="@+id/addEventStartingTimeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="15dp"
+        android:text="@string/startingTimeLabel"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/addEventStartHour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addEventDateLabel" />
+
+    <TextView
+        android:id="@+id/addEventEndingTimeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/endingTimeLabel"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/addEventEndHour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addEventStartingTimeLabel" />
+
+    <TextView
+        android:id="@+id/addEventRemarkLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:text="@string/remarkLabel"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/addEventRemarkField"
+        app:layout_constraintStart_toStartOf="@+id/addEventIncomeLabel" />
+
+    <TextView
+        android:id="@+id/addEventIncomeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="18dp"
+        android:text="@string/incomeLabel"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/addEventIncomeField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addEventEndingTimeLabel" />
+
+    <EditText
+        android:id="@+id/addEventTitleField"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="27dp"
+        android:ems="10"
+        android:hint="@string/titleHint"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/addEventDescriptionLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addEventTitleLabel"
+        app:layout_constraintTop_toBottomOf="@+id/addEventTitle" />
+
+    <EditText
+        android:id="@+id/addEventDescriptionField"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginBottom="27dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="@+id/addEventCompanyLabel"
+        app:layout_constraintEnd_toEndOf="@+id/addEvenCompanyField"
+        app:layout_constraintStart_toStartOf="@+id/addEventDescriptionLabel"
+        app:layout_constraintTop_toTopOf="@+id/addEventDescriptionLabel" />
+
+    <EditText
+        android:id="@+id/addEvenCompanyField"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="151dp"
+        android:layout_marginBottom="152dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="@+id/addEventEndMinute"
+        app:layout_constraintEnd_toEndOf="@+id/addEventDateField"
+        app:layout_constraintStart_toStartOf="@+id/addEventCompanyLabel"
+        app:layout_constraintTop_toTopOf="@+id/addEventTitleLabel" />
+
+    <EditText
+        android:id="@+id/addEventRemarkField"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginBottom="94dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/addEventDateField"
+        app:layout_constraintStart_toStartOf="@+id/addEventRemarkLabel"
+        app:layout_constraintTop_toTopOf="@+id/addEventIncomeField" />
+
+    <Button
+        android:id="@+id/addEventDateField"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="65dp"
+        android:textSize="20sp"
+        android:text=""
+        android:textColor="@color/black"
+        style="?android:spinnerStyle"
+
+        app:layout_constraintBottom_toTopOf="@+id/addEventEndMinute"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addEventDateLabel"
+        app:layout_constraintTop_toTopOf="@+id/addEvenCompanyField" />
+
+    <Spinner
+        android:id="@+id/addEventStartHour"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="52dp"
+        app:layout_constraintBottom_toBottomOf="@+id/addEventEndHour"
+        app:layout_constraintEnd_toStartOf="@+id/addEventStartMinute"
+        app:layout_constraintStart_toEndOf="@+id/addEventStartingTimeLabel"
+        app:layout_constraintTop_toTopOf="@+id/addEventDateField" />
+
+    <Spinner
+        android:id="@+id/addEventStartMinute"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="22dp"
+        app:layout_constraintBottom_toBottomOf="@+id/addEventStartHour"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addEventStartHour"
+        app:layout_constraintTop_toTopOf="@+id/addEventStartHour" />
+
+    <Spinner
+        android:id="@+id/addEventEndHour"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/addEventIncomeField"
+        app:layout_constraintEnd_toStartOf="@+id/addEventEndMinute"
+        app:layout_constraintStart_toEndOf="@+id/addEventEndingTimeLabel"
+        app:layout_constraintTop_toBottomOf="@+id/addEventStartingTimeLabel" />
+
+    <Spinner
+        android:id="@+id/addEventEndMinute"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="22dp"
+        app:layout_constraintBottom_toBottomOf="@+id/addEventEndHour"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addEventEndHour"
+        app:layout_constraintTop_toTopOf="@+id/addEventEndHour" />
+
+    <EditText
+        android:id="@+id/addEventIncomeField"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="22dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="0.00"
+        app:layout_constraintBaseline_toBaselineOf="@+id/addEventIncomeLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addEventIncomeLabel" />
+
+    <TextView
+        android:id="@+id/addEventMessageBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/messageHolder"
+        android:textAlignment="center"
+        android:textColor="#FF0000"
+        app:layout_constraintBottom_toTopOf="@+id/confirmButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
