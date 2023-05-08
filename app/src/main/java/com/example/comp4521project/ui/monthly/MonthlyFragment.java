@@ -15,14 +15,19 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.comp4521project.MainActivity;
+import com.example.comp4521project.R;
 import com.example.comp4521project.databinding.FragmentMonthlyBinding;
+import com.example.comp4521project.ui.IFragment;
+import com.example.comp4521project.ui.weekly.WeeklyFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class MonthlyFragment extends Fragment implements CalendarAdapter.OnItemListener{
+public class MonthlyFragment extends IFragment implements CalendarAdapter.OnItemListener{
 
     private FragmentMonthlyBinding binding;
 
@@ -36,7 +41,7 @@ public class MonthlyFragment extends Fragment implements CalendarAdapter.OnItemL
                              ViewGroup container, Bundle savedInstanceState) {
         // MonthlyViewModel monthlyViewModel =
         //        new ViewModelProvider(this).get(MonthlyViewModel.class);
-
+        MainActivity.currentFrag = this;
 
         binding = FragmentMonthlyBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -50,11 +55,10 @@ public class MonthlyFragment extends Fragment implements CalendarAdapter.OnItemL
 
         monthBefore.setOnClickListener(monthbefore);
         monthAfter.setOnClickListener(monthafter);
-
+        Log.d("haha", "called");
         return root;
     }
 
-    /* REFRESH */
     private void setMonthView() {
         month.setText(monthFromDate(selectedDate));
         ArrayList<String> daysInMonth = daysInMonthArray(selectedDate);
@@ -119,10 +123,14 @@ public class MonthlyFragment extends Fragment implements CalendarAdapter.OnItemL
     public void onItemClick(int position, String dayText) {
         if (!dayText.equals("")){
 
-            String message = "select date " + dayText + " " + monthFromDate(selectedDate);
-
-            Toast.makeText(getContext().getApplicationContext(), message, Toast.LENGTH_LONG).show();
-
+            BottomNavigationView bnv = (BottomNavigationView) getActivity().findViewById(R.id.nav_view);
+            //WeeklyFragment.selectedWeek =;
+            bnv.setSelectedItemId(R.id.navigation_weekly);
         }
+    }
+
+    @Override
+    public void refreshContent() {
+        setMonthView();
     }
 }

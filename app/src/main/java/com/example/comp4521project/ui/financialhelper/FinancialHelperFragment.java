@@ -10,14 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.comp4521project.MainActivity;
 import com.example.comp4521project.databinding.FragmentFinancialhelperBinding;
+import com.example.comp4521project.ui.IFragment;
 
-public class FinancialHelperFragment extends Fragment {
+public class FinancialHelperFragment extends IFragment {
 
     private FragmentFinancialhelperBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        MainActivity.currentFrag = this;
+
         FinancialHelperViewModel financialHelperViewModel =
                 new ViewModelProvider(this).get(FinancialHelperViewModel.class);
 
@@ -33,5 +37,10 @@ public class FinancialHelperFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void refreshContent() {
+
     }
 }

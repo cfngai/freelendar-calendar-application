@@ -10,14 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.comp4521project.MainActivity;
 import com.example.comp4521project.databinding.FragmentSettingBinding;
+import com.example.comp4521project.ui.IFragment;
 
-public class SettingFragment extends Fragment {
+public class SettingFragment extends IFragment {
 
     private FragmentSettingBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        MainActivity.currentFrag = this;
+
         SettingViewModel settingViewModel =
                 new ViewModelProvider(this).get(SettingViewModel.class);
 
@@ -33,5 +37,10 @@ public class SettingFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void refreshContent() {
+
     }
 }

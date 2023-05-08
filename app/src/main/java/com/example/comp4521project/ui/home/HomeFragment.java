@@ -10,14 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.comp4521project.MainActivity;
 import com.example.comp4521project.databinding.FragmentHomeBinding;
+import com.example.comp4521project.ui.IFragment;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends IFragment {
 
     private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        MainActivity.currentFrag = this;
+
         HomeViewModel homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
@@ -33,5 +37,10 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void refreshContent() {
+
     }
 }
