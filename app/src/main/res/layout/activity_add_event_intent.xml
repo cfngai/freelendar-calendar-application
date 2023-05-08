@@ -200,16 +200,17 @@
 
     <Button
         android:id="@+id/addEventDateField"
+        style="?android:spinnerStyle"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="67dp"
         android:layout_marginEnd="21dp"
         android:layout_marginBottom="65dp"
-        android:textSize="20sp"
+        android:outlineProvider="bounds"
         android:text=""
         android:textColor="@color/black"
-        style="?android:spinnerStyle"
 
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/addEventEndMinute"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/addEventDateLabel"

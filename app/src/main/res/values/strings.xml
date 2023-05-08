@@ -29,4 +29,10 @@
     <string name="weekdayFRI">FRI</string>
     <string name="weekdaySAT">SAT</string>
     <string name="cellDay">Day</string>
+    <string name="FinancialHelperTitle">Financial Helper</string>
+    <string name="From">From:</string>
+    <string name="To">To:</string>
+    <string name="Target">Target:</string>
+    <string name="Done">Done</string>
+    <string name="financialDefaultTarget">0.00</string>
 </resources>

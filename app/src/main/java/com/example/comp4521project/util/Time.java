@@ -36,4 +36,11 @@ public class Time {
         return false;
     }
 
+    public int getHour() {
+        return hour;
+    }
+
+    public int getMinute() {
+        return minute;
+    }
 }

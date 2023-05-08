@@ -10,6 +10,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -31,6 +33,8 @@ public class DataLoader {
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
+        UpdateStatus();
+        saveData(context);
     }
 
     public void loadDate(Context context) throws JSONException {
@@ -77,12 +81,14 @@ public class DataLoader {
         event.setID(id);
         idToEvent.put(id,event);
         storeByDate(event);
+        UpdateStatus();
         return saveData(context);
     }
 
     public boolean removeEvent(Context context, IEvent event) {
         idToEvent.remove(event.getID());
         removeByDate(event);
+        UpdateStatus();
         return saveData(context);
     }
 
@@ -101,6 +107,22 @@ public class DataLoader {
         return result;
     }
 
+    public List<IEvent> getEventsByDateWithTargetStatus(LocalDate date, int status) {
+        int year = date.getYear();
+        int month = date.getMonthValue();
+        int day = date.getDayOfMonth();
+        if (!mapForDate.containsKey(year)) return null;
+        if (!mapForDate.get(year).containsKey(month)) return null;
+        if (!mapForDate.get(year).get(month).containsKey(day)) return null;
+        List <IEvent> result = new ArrayList<>();
+        for (int value : mapForDate.get(year).get(month).get(day)) {
+            if (idToEvent.get(value).getStatus()!=status) continue;
+            result.add(idToEvent.get(value));
+        }
+        if (result.size()==0) return null;
+        return result;
+    }
+
     public List<IEvent> getEventsByPeriod(LocalDate date1, LocalDate date2) {
         long numOfDays = ChronoUnit.DAYS.between(date1, date2);
 
@@ -111,10 +133,59 @@ public class DataLoader {
         List <IEvent> result = new ArrayList<>();
         for (LocalDate date : listOfDates) {
             List <IEvent> dayResult = getEventsByDate(date);
-            result.addAll(dayResult);
+            if(dayResult!=null) result.addAll(dayResult);
         }
         if (result.size()==0) return null;
         return result;
+    }
+    public List<IEvent> getEventsByPeriod(LocalDate date1, LocalDate date2, int status) {
+        long numOfDays = ChronoUnit.DAYS.between(date1, date2);
+
+        List<LocalDate> listOfDates = Stream.iterate(date1, date -> date.plusDays(1))
+                .limit(numOfDays)
+                .collect(Collectors.toList());
+
+        List <IEvent> result = new ArrayList<>();
+        for (LocalDate date : listOfDates) {
+            List <IEvent> dayResult = getEventsByDateWithTargetStatus(date, status);
+            if(dayResult!=null) result.addAll(dayResult);
+        }
+        if (result.size()==0) return null;
+        return result;
+    }
+
+    public void UpdateStatus() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        int year = now.getYear();
+        int month = now.getMonthValue();
+        int day = now.getDayOfMonth();
+        int hour = now.getHour();
+        int minute = now.getMinute();
+
+        for (int id : idToEvent.keySet()) {
+            IEvent event = idToEvent.get(id);
+            if (event.getStatus()==1 || event.getStatus() == 0) continue;
+            if (year>event.getLocalDate().getYear()) {
+                event.setStatus(0); continue;
+            }
+            if (year == event.getLocalDate().getYear() && month > event.getLocalDate().getMonthValue()) {
+                event.setStatus(0); continue;
+            }
+            if (year == event.getLocalDate().getYear() && month == event.getLocalDate().getMonthValue()
+            && day>event.getLocalDate().getDayOfMonth()) {
+                event.setStatus(0); continue;
+            }
+            if (year == event.getLocalDate().getYear() && month == event.getLocalDate().getMonthValue()
+                    && day == event.getLocalDate().getDayOfMonth()) {
+                if (hour > event.getEndTime().getHour()) {
+                    event.setStatus(0); continue;
+                }
+                if (hour == event.getEndTime().getHour() && minute >= event.getEndTime().getMinute()) {
+                    event.setStatus(0); continue;
+                }
+            }
+        }
     }
 
     /** HELPER FUNCTIONS **/
