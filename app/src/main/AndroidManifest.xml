@@ -15,6 +15,12 @@
             android:name=".AddEventIntent"
             android:exported="false" />
         <activity
+            android:name=".ConfirmEventIntent"
+            android:exported="false" />
+        <activity
+            android:name=".ReviewEventIntent"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">

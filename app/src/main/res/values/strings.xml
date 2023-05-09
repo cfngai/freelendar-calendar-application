@@ -35,4 +35,12 @@
     <string name="Target">Target:</string>
     <string name="Done">Done</string>
     <string name="financialDefaultTarget">0.00</string>
+    <string name="ConfirmEventTitle">Event Confirmation</string>
+
+    <string name="weekbefore"><![CDATA[<<]]></string>
+    <string name="weekafter"><![CDATA[>>]]></string>
+    <string name="Time">Time</string>
+    <string name="wordsInTimetable">XX:XX</string>
+    <string name="Delete">Delete</string>
+    <string name="ReviewEventTitle">Review Event</string>
 </resources>

@@ -37,6 +37,7 @@ public class MonthlyFragment extends IFragment implements CalendarAdapter.OnItem
     private Button monthBefore;
     private Button monthAfter;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         // MonthlyViewModel monthlyViewModel =
@@ -55,22 +56,22 @@ public class MonthlyFragment extends IFragment implements CalendarAdapter.OnItem
 
         monthBefore.setOnClickListener(monthbefore);
         monthAfter.setOnClickListener(monthafter);
-        Log.d("haha", "called");
         return root;
     }
 
     private void setMonthView() {
         month.setText(monthFromDate(selectedDate));
-        ArrayList<String> daysInMonth = daysInMonthArray(selectedDate);
+        ArrayList<LocalDate> daysInMonth = daysInMonthArray(selectedDate);
         CalendarAdapter calendarAdapter = new CalendarAdapter(getContext() ,selectedDate ,daysInMonth, this);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext().getApplicationContext(), 7);
         calendarView.setLayoutManager(layoutManager);
         calendarView.setAdapter(calendarAdapter);
+        Log.d("monthly", "update month view");
     }
 
 
-    private ArrayList<String> daysInMonthArray(LocalDate Date) {
-        ArrayList<String> daysInMonthArray = new ArrayList<>();
+    private ArrayList<LocalDate> daysInMonthArray(LocalDate Date) {
+        ArrayList<LocalDate> daysInMonthArray = new ArrayList<>();
         YearMonth yearMonth = YearMonth.from(Date);
         int daysInMonth = yearMonth.lengthOfMonth();
 
@@ -79,10 +80,11 @@ public class MonthlyFragment extends IFragment implements CalendarAdapter.OnItem
 
         for (int i = 1; i <=42; ++i) {
             if (i <= dayOfWeek || i > daysInMonth + dayOfWeek){
-                daysInMonthArray.add("");
+                daysInMonthArray.add(null);
             }
             else{
-                daysInMonthArray.add(String.valueOf(i - dayOfWeek));
+                daysInMonthArray.add(LocalDate.of(selectedDate.getYear(), selectedDate.getMonth(), i- dayOfWeek));
+
             }
         }
 
@@ -123,8 +125,16 @@ public class MonthlyFragment extends IFragment implements CalendarAdapter.OnItem
     public void onItemClick(int position, String dayText) {
         if (!dayText.equals("")){
 
+            String message = dayText +" "+monthFromDate(selectedDate);
+
+            Toast.makeText(getContext().getApplicationContext(), message, Toast.LENGTH_LONG).show();
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMMM yyyy");
+
+            LocalDate chooseDate = LocalDate.parse(message, formatter);
+
             BottomNavigationView bnv = (BottomNavigationView) getActivity().findViewById(R.id.nav_view);
-            //WeeklyFragment.selectedWeek =;
+            WeeklyFragment.SelectedWeek = chooseDate;
             bnv.setSelectedItemId(R.id.navigation_weekly);
         }
     }

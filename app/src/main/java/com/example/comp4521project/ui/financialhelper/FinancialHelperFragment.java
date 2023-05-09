@@ -62,7 +62,7 @@ public class FinancialHelperFragment extends IFragment {
     }
     private void initFromDateField() {
         DatePickerDialog.OnDateSetListener dateSetListener = (datePicker, i, i1, i2) -> {
-            LocalDate date = LocalDate.of(i,i1+1,i2).minusDays(30);
+            LocalDate date = LocalDate.of(i,i1+1,i2);
             fromDateField.setText(date.toString());
         };
         LocalDate date = LocalDate.now().minusDays(30);

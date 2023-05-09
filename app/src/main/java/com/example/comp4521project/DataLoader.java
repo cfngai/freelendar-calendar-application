@@ -91,7 +91,19 @@ public class DataLoader {
         UpdateStatus();
         return saveData(context);
     }
-
+    public boolean removeEvent(Context context, int id) {
+        IEvent event = idToEvent.get(id);
+        idToEvent.remove(event.getID());
+        removeByDate(event);
+        UpdateStatus();
+        return saveData(context);
+    }
+    public boolean updateEventStatus(Context context, int id, int status) {
+        IEvent event = idToEvent.get(id);
+        event.setStatus(status);
+        UpdateStatus();
+        return saveData(context);
+    }
     public List<IEvent> getEventsByDate(LocalDate date) {
         int year = date.getYear();
         int month = date.getMonthValue();
@@ -121,6 +133,10 @@ public class DataLoader {
         }
         if (result.size()==0) return null;
         return result;
+    }
+
+    public IEvent getEventByID(int id) {
+        return (idToEvent.containsKey(id)) ? idToEvent.get(id) : null;
     }
 
     public List<IEvent> getEventsByPeriod(LocalDate date1, LocalDate date2) {

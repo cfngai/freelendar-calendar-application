@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReviewEventIntent">
+
+    <TextView
+        android:id="@+id/reviewEventTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/ReviewEventTitle"
+        android:textColor="#6200ED"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/reviewEventTitleField"
+        android:layout_width="272dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:hint="@string/titleHint"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewEventTitle" />
+
+    <TextView
+        android:id="@+id/reviewEventDescriptionLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="@string/descriptionLabel"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewEventTitleLabel" />
+
+    <EditText
+        android:id="@+id/reviewEventDescriptionField"
+        android:layout_width="354dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="30dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewEventDescriptionLabel" />
+
+    <Spinner
+        android:id="@+id/reviewEventEndMinute"
+        android:layout_width="96dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewEventStartMinute" />
+
+    <Spinner
+        android:id="@+id/reviewEventEndHour"
+        android:layout_width="96dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/reviewEventEndMinute"
+        app:layout_constraintTop_toBottomOf="@+id/reviewEventStartHour" />
+
+    <Spinner
+        android:id="@+id/reviewEventStartHour"
+        android:layout_width="95dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/reviewEventStartMinute"
+        app:layout_constraintTop_toBottomOf="@+id/reviewEventDateField" />
+
+    <Spinner
+        android:id="@+id/reviewEventStartMinute"
+        android:layout_width="95dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewEventDateField" />
+
+    <TextView
+        android:id="@+id/reviewEventCompanyLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/companyLabel"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewEventDescriptionField" />
+
+    <EditText
+        android:id="@+id/reviewEvenCompanyField"
+        android:layout_width="345dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewEventCompanyLabel" />
+
+    <Button
+        android:id="@+id/reviewEventDateField"
+        style="?android:spinnerStyle"
+        android:layout_width="278dp"
+        android:layout_height="49dp"
+
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:outlineProvider="bounds"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewEvenCompanyField" />
+
+    <TextView
+        android:id="@+id/reviewEventDateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="@string/dateLabel"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewEvenCompanyField" />
+
+    <EditText
+        android:id="@+id/reviewEventIncomeField"
+        android:layout_width="254dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="0.00"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewEventEndHour" />
+
+    <TextView
+        android:id="@+id/reviewEventTitleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="@string/titleLabel"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewEventTitle" />
+
+    <EditText
+        android:id="@+id/reviewEventRemarkField"
+        android:layout_width="351dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/reviewDeleteButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewEventRemarkLabel" />
+
+    <TextView
+        android:id="@+id/reviewEventStartingTimeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/startingTimeLabel"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewEventDateLabel" />
+
+    <TextView
+        android:id="@+id/reviewEventEndingTimeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/endingTimeLabel"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewEventStartingTimeLabel" />
+
+    <TextView
+        android:id="@+id/reviewEventIncomeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/incomeLabel"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewEventEndingTimeLabel" />
+
+    <TextView
+        android:id="@+id/reviewEventRemarkLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/remarkLabel"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewEventIncomeLabel" />
+
+    <Button
+        android:id="@+id/reviewCancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="#B3B3B3"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/reviewDeleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="#F44336"
+        android:text="@string/Delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

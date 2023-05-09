@@ -41,8 +41,8 @@ public class AddEventIntent extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_event_intent);
-        confirmButton = (Button) findViewById(R.id.confirmButton);
-        cancelButton = (Button) findViewById(R.id.cancelButton);
+        confirmButton = (Button) findViewById(R.id.addCompleteButton);
+        cancelButton = (Button) findViewById(R.id.addCancelButton);
 
         confirmButton.setOnClickListener(confirmButtonClick);
         cancelButton.setOnClickListener(cancelButtonClick);
@@ -68,7 +68,7 @@ public class AddEventIntent extends AppCompatActivity {
         startHour.setAdapter(hourAdapter);
         endHour.setAdapter(hourAdapter);
 
-        String[] minute = { "00","15","30","45"};
+        String[] minute = { "00","30"};
         ArrayAdapter<String> minuteAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, minute);
         minuteAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         startMinute.setAdapter(minuteAdapter);
