@@ -118,22 +118,25 @@ public class FinancialHelperFragment extends IFragment {
         LocalDate toDate = LocalDate.of(toYear, toMonth, toDay);
 
         List<IEvent> resultEvents = MainActivity.dataLoader.getEventsByPeriod(fromDate, toDate);
-        for (IEvent event : resultEvents) {
-            numEvent++;
-            totalIncome += event.getIncome();
-            totalHour += 1.0 * (event.getEndTime().toInt() - event.getStartTime().toInt()) / 60;
+        if (resultEvents != null) {
+            for (IEvent event : resultEvents) {
+                numEvent++;
+                totalIncome += event.getIncome();
+                totalHour += 1.0 * (event.getEndTime().toInt() - event.getStartTime().toInt()) / 60;
 
-            confirmedHour += 1.0 * (event.getEndTime().toInt() - event.getStartTime().toInt()) / 60;
-            if (event.getStatus() == 1) {
-                completed++;
-                confirmedIncome += event.getIncome();
                 confirmedHour += 1.0 * (event.getEndTime().toInt() - event.getStartTime().toInt()) / 60;
-            } else if (event.getStatus() == 0) {
-                incomplete++;
-            } else {
-                upcoming++;
+                if (event.getStatus() == 1) {
+                    completed++;
+                    confirmedIncome += event.getIncome();
+                    confirmedHour += 1.0 * (event.getEndTime().toInt() - event.getStartTime().toInt()) / 60;
+                } else if (event.getStatus() == 0) {
+                    incomplete++;
+                } else {
+                    upcoming++;
+                }
             }
         }
+
 
         float confirmedAvgIncomePerE = confirmedIncome/completed;
         float confirmedAvgIncomePerH = confirmedIncome/confirmedHour;

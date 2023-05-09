@@ -10,12 +10,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.comp4521project.util.IEvent;
 import com.example.comp4521project.util.Time;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 
@@ -35,6 +39,8 @@ public class AddEventIntent extends AppCompatActivity {
     private Spinner endMinute;
     private EditText incomeField;
     private EditText remarkField;
+
+    private Switch notificationField;
     private TextView message;
 
     @Override
@@ -76,6 +82,7 @@ public class AddEventIntent extends AppCompatActivity {
 
         incomeField = findViewById(R.id.addEventIncomeField);
         remarkField = findViewById(R.id.addEventRemarkField);
+        notificationField = findViewById(R.id.addEventNotification);
 
         message = findViewById(R.id.addEventMessageBox);
         message.setText("");
@@ -119,6 +126,13 @@ public class AddEventIntent extends AppCompatActivity {
         if (!addEvent) {
             message.setText("Unexpected Error occurs");
         } else {
+            if (notificationField.isChecked()) {
+                LocalDateTime now = LocalDateTime.now();
+                LocalDateTime target = LocalDateTime.of(event.getLocalDate().getYear(),event.getLocalDate().getMonthValue(),
+                        event.getLocalDate().getDayOfMonth(),event.getStartTime().getHour(),event.getStartTime().getMinute());
+                long diff = ChronoUnit.MILLIS.between(now, target);
+                NotificationPublisher.sendScheduledNotification(this, "Alarm: "+event.getTitle(), event.getDescription(),diff);
+            }
             finish();
         }
     };

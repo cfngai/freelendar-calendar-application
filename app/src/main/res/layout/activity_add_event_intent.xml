@@ -9,54 +9,48 @@
     <Button
         android:id="@+id/addCompleteButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="43dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="5dp"
         android:backgroundTint="#4CAF50"
         android:text="@string/confirm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/addCancelButton"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/addEventRemarkField" />
+        app:layout_constraintStart_toEndOf="@+id/addEventNotification" />
 
     <Button
         android:id="@+id/addCancelButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginEnd="67dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="5dp"
         android:backgroundTint="#B3B3B3"
         android:text="@string/cancel"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/addEventRemarkField"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/addEventEndingTimeLabel" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/addEventTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/AddEventTitle"
         android:textColor="#6200ED"
         android:textSize="34sp"
-        app:layout_constraintStart_toEndOf="@+id/addEventTitleLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/addEventTitleLabel"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="28dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
         android:text="@string/titleLabel"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/addEventTitleField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addEventTitle" />
 
@@ -64,59 +58,55 @@
         android:id="@+id/addEventDescriptionLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
         android:text="@string/descriptionLabel"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/addEventTitleLabel"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addEventTitleLabel" />
 
     <TextView
         android:id="@+id/addEventCompanyLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="30dp"
         android:text="@string/companyLabel"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/addEventIncomeField"
-        app:layout_constraintStart_toStartOf="@+id/addEventDescriptionLabel"
-        app:layout_constraintTop_toBottomOf="@+id/addEventDescriptionLabel" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addEventDescriptionField" />
 
     <TextView
         android:id="@+id/addEventDateLabel"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="21dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
         android:text="@string/dateLabel"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/addEventDateField"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addEventCompanyLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/addEvenCompanyField" />
 
     <TextView
         android:id="@+id/addEventStartingTimeLabel"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="15dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
         android:text="@string/startingTimeLabel"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/addEventStartHour"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addEventDateLabel" />
 
     <TextView
         android:id="@+id/addEventEndingTimeLabel"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
         android:text="@string/endingTimeLabel"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/addEventEndHour"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addEventStartingTimeLabel" />
 
@@ -124,167 +114,165 @@
         android:id="@+id/addEventRemarkLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
         android:text="@string/remarkLabel"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/addEventRemarkField"
-        app:layout_constraintStart_toStartOf="@+id/addEventIncomeLabel" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addEventIncomeLabel" />
 
     <TextView
         android:id="@+id/addEventIncomeLabel"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="18dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
         android:text="@string/incomeLabel"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/addEventIncomeField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addEventEndingTimeLabel" />
 
     <EditText
         android:id="@+id/addEventTitleField"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="27dp"
+        android:layout_width="272dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
         android:ems="10"
         android:hint="@string/titleHint"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/addEventDescriptionLabel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/addEventTitleLabel"
         app:layout_constraintTop_toBottomOf="@+id/addEventTitle" />
 
     <EditText
         android:id="@+id/addEventDescriptionField"
         android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginBottom="27dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="@+id/addEventCompanyLabel"
-        app:layout_constraintEnd_toEndOf="@+id/addEvenCompanyField"
-        app:layout_constraintStart_toStartOf="@+id/addEventDescriptionLabel"
-        app:layout_constraintTop_toTopOf="@+id/addEventDescriptionLabel" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addEventDescriptionLabel" />
 
     <EditText
         android:id="@+id/addEvenCompanyField"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginTop="151dp"
-        android:layout_marginBottom="152dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="@+id/addEventEndMinute"
-        app:layout_constraintEnd_toEndOf="@+id/addEventDateField"
-        app:layout_constraintStart_toStartOf="@+id/addEventCompanyLabel"
-        app:layout_constraintTop_toTopOf="@+id/addEventTitleLabel" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addEventCompanyLabel" />
 
     <EditText
         android:id="@+id/addEventRemarkField"
         android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginBottom="94dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="5dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/addEventDateField"
-        app:layout_constraintStart_toStartOf="@+id/addEventRemarkLabel"
-        app:layout_constraintTop_toTopOf="@+id/addEventIncomeField" />
+        app:layout_constraintBottom_toTopOf="@+id/addEventMessageBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addEventRemarkLabel" />
 
     <Button
         android:id="@+id/addEventDateField"
         style="?android:spinnerStyle"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="67dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="65dp"
+        android:layout_width="278dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
         android:outlineProvider="bounds"
+
         android:text=""
         android:textColor="@color/black"
-
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/addEventEndMinute"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/addEventDateLabel"
-        app:layout_constraintTop_toTopOf="@+id/addEvenCompanyField" />
+        app:layout_constraintTop_toBottomOf="@+id/addEvenCompanyField" />
 
     <Spinner
         android:id="@+id/addEventStartHour"
-        android:layout_width="0dp"
+        android:layout_width="95dp"
         android:layout_height="48dp"
-        android:layout_marginTop="53dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginBottom="52dp"
-        app:layout_constraintBottom_toBottomOf="@+id/addEventEndHour"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toStartOf="@+id/addEventStartMinute"
-        app:layout_constraintStart_toEndOf="@+id/addEventStartingTimeLabel"
-        app:layout_constraintTop_toTopOf="@+id/addEventDateField" />
+        app:layout_constraintTop_toBottomOf="@+id/addEventDateField" />
 
     <Spinner
         android:id="@+id/addEventStartMinute"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="22dp"
-        app:layout_constraintBottom_toBottomOf="@+id/addEventStartHour"
+        android:layout_width="95dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/addEventStartHour"
-        app:layout_constraintTop_toTopOf="@+id/addEventStartHour" />
+        app:layout_constraintTop_toBottomOf="@+id/addEventDateField" />
 
     <Spinner
         android:id="@+id/addEventEndHour"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginBottom="14dp"
-        app:layout_constraintBottom_toTopOf="@+id/addEventIncomeField"
+        android:layout_width="96dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toStartOf="@+id/addEventEndMinute"
-        app:layout_constraintStart_toEndOf="@+id/addEventEndingTimeLabel"
-        app:layout_constraintTop_toBottomOf="@+id/addEventStartingTimeLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/addEventStartHour" />
 
     <Spinner
         android:id="@+id/addEventEndMinute"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="22dp"
-        app:layout_constraintBottom_toBottomOf="@+id/addEventEndHour"
+        android:layout_width="95dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/addEventEndHour"
-        app:layout_constraintTop_toTopOf="@+id/addEventEndHour" />
+        app:layout_constraintTop_toBottomOf="@+id/addEventStartMinute" />
 
     <EditText
         android:id="@+id/addEventIncomeField"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="22dp"
+        android:layout_width="254dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
         android:ems="10"
         android:inputType="numberDecimal"
         android:text="0.00"
-        app:layout_constraintBaseline_toBaselineOf="@+id/addEventIncomeLabel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/addEventIncomeLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/addEventEndHour" />
 
     <TextView
         android:id="@+id/addEventMessageBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="5dp"
         android:text="@string/messageHolder"
         android:textAlignment="center"
         android:textColor="#FF0000"
         app:layout_constraintBottom_toTopOf="@+id/addCompleteButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Switch
+        android:id="@+id/addEventNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/Notification"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

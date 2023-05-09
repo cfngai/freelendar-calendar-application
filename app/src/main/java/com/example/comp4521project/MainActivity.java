@@ -2,9 +2,14 @@ package com.example.comp4521project;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +26,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavHostController;
@@ -70,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
         addEventButton = (ImageButton) findViewById(R.id.addEventButton);
         addEventButton.setOnClickListener(addEventButtonClick);
+
     }
 
     private View.OnClickListener addEventButtonClick = view -> {

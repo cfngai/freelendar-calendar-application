@@ -43,4 +43,5 @@
     <string name="wordsInTimetable">XX:XX</string>
     <string name="Delete">Delete</string>
     <string name="ReviewEventTitle">Review Event</string>
+    <string name="Notification">Notification</string>
 </resources>
