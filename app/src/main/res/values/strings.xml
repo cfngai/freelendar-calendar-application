@@ -44,4 +44,8 @@
     <string name="Delete">Delete</string>
     <string name="ReviewEventTitle">Review Event</string>
     <string name="Notification">Notification</string>
+    <string name="home_calendar">Calendar</string>
+    <string name="today_work">Todays\' schedule</string>
+    <string name="home_confirm_event">Confirm event</string>
+    <string name="home_financial_helper">Financial Helper</string>
 </resources>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="0dp"
+        app:cardCornerRadius="22dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_100"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/event_id_des"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="center|top"
+                android:text="EVENT \nDescription"
+
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/purple_200"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/home_confirmBtn"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="0dp"
+                    android:layout_weight="1"
+
+                    android:background="#00FFFFFF"
+                    android:drawableLeft="@drawable/circle_with_tick"
+                    android:isScrollContainer="false"
+                    android:textSize="8sp" />
+
+                <Button
+                    android:id="@+id/home_Delete"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="0dp"
+                    android:layout_weight="1"
+
+                    android:background="#00FFFFFF"
+                    android:drawableRight="@drawable/circle_with_cross"
+                    android:isScrollContainer="false"
+                    android:textSize="8sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

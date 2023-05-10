@@ -226,6 +226,6 @@ public class DataLoader {
         if (!mapForDate.containsKey(year)) return;
         if (!mapForDate.get(year).containsKey(month)) return;
         if (!mapForDate.get(year).get(month).containsKey(day)) return;
-        mapForDate.get(year).get(month).get(day).remove(event.getID());
+        mapForDate.get(year).get(month).get(day).remove(Integer.valueOf(event.getID()));
     }
 }

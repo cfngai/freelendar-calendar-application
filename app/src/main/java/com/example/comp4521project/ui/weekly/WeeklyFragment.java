@@ -57,9 +57,6 @@ public class WeeklyFragment extends IFragment implements CalendarAdapter.OnItemL
                              ViewGroup container, Bundle savedInstanceState) {
         MainActivity.currentFrag = this;
 
-        WeeklyViewModel weeklyViewModel =
-                new ViewModelProvider(this).get(WeeklyViewModel.class);
-
         binding = FragmentWeeklyBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
